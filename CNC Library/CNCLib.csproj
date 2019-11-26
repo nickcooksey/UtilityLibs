@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E0B421B3-C2B0-4132-893E-C66376132BE7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CNCLib</RootNamespace>
+    <AssemblyName>CNCLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.core">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.core.interfaces">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.util">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NUnit.VisualStudio.TestAdapter">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NcFiles\NcActionCommand.cs" />
+    <Compile Include="NcFiles\NcElement.cs" />
+    <Compile Include="NcFiles\NcPositionCommand.cs" />
+    <Compile Include="NcMachine\CommandDictionary.cs" />
+    <Compile Include="Toolpath\ArcPathEntity.cs" />
+    <Compile Include="NcMachine\Axis.cs" />
+    <Compile Include="NcFiles\CNCFileParser.cs" />
+    <Compile Include="NcFiles\CNCMachineCode.cs" />
+    <Compile Include="NcFiles\CNCMachineCodeFile.cs" />
+    <Compile Include="Toolpath\DelayPathEntity.cs" />
+    <Compile Include="NcMachine\Feedrate.cs" />
+    <Compile Include="NcMachine\LinearAxis.cs" />
+    <Compile Include="Toolpath\LinePathEntity.cs" />
+    <Compile Include="NcMachine\MachinePosition.cs" />
+    <Compile Include="NcMachine\MachineSettings.cs" />
+    <Compile Include="NcMachine\MachineSettingsFile.cs" />
+    <Compile Include="NcFiles\NcFile.cs" />
+    <Compile Include="NcFiles\NcFileBuilder.cs" />
+    <Compile Include="NcFiles\NcFileEnumerator.cs" />
+    <Compile Include="NcFiles\NcFileParser.cs" />
+    <Compile Include="NcFiles\NciFileParser.cs" />
+    <Compile Include="NcMachine\NcMachine.cs" />
+    <Compile Include="Toolpath\PathEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NcMachine\RotaryAxis.cs" />
+    <Compile Include="Toolpath\Toolpath.cs" />
+    <Compile Include="Toolpath\ToolpathEnumerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\File IO Library\FileIO\FileIOLib.csproj">
+      <Project>{16378d09-19aa-45e1-b27c-3fbf6c33d19d}</Project>
+      <Name>FileIOLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GeometryLib\GeometryLib.csproj">
+      <Project>{9ad06540-598d-4c01-ab09-4e68ca4fad28}</Project>
+      <Name>GeometryLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ICncLib\ICNCLib.csproj">
+      <Project>{f0a13216-3122-4e25-be0a-dcfbb7891cae}</Project>
+      <Name>ICNCLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IGeometryLib\IGeometryLib.csproj">
+      <Project>{23ffcff1-a208-47d2-8349-472b915bf07a}</Project>
+      <Name>IGeometryLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsFormLib\WindowsFormLib.csproj">
+      <Project>{872e3e7e-d5f8-4acd-a098-ea184ba0e7f9}</Project>
+      <Name>WindowsFormLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

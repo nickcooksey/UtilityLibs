@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD495BA7-4283-4C47-A3E9-1D2633ACB95F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IDataLib</RootNamespace>
+    <AssemblyName>IDataLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MathNet.Numerics, Version=4.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.4.8.1\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CircleFitType.cs" />
+    <Compile Include="ColorCode.cs" />
+    <Compile Include="DataContainers\ICartData.cs" />
+    <Compile Include="DataContainers\ICartGridData.cs" />
+    <Compile Include="IColorCoder.cs" />
+    <Compile Include="3DBuilder\IColorMapBase.cs" />
+    <Compile Include="3DBuilder\IColorMapBuilder.cs" />
+    <Compile Include="DataContainers\ICylData.cs" />
+    <Compile Include="DataContainers\ICylGridData.cs" />
+    <Compile Include="DataContainers\ICylTolData.cs" />
+    <Compile Include="PlyFile\IPlyEdge.cs" />
+    <Compile Include="PlyFile\IPlyElement.cs" />
+    <Compile Include="PlyFile\IPlyFace.cs" />
+    <Compile Include="PlyFile\IPlyHeader.cs" />
+    <Compile Include="PlyFile\IPlyProperty.cs" />
+    <Compile Include="PlyFile\IPlyVertex.cs" />
+    <Compile Include="PlyFile\PlyElementType.cs" />
+    <Compile Include="PlyFile\PlyFormat.cs" />
+    <Compile Include="PlyFile\PlyPropertyType.cs" />
+    <Compile Include="TolType.cs" />
+    <Compile Include="DataContainers\IDataUtilities.cs" />
+    <Compile Include="DataContainers\IDisplayData.cs" />
+    <Compile Include="DataContainers\IDisplayDataList.cs" />
+    <Compile Include="IDxfFile.cs" />
+    <Compile Include="IMeasurementUnit.cs" />
+    <Compile Include="3DBuilder\IModel3DBuilder.cs" />
+    <Compile Include="PlyFile\IPlyFile.cs" />
+    <Compile Include="DataContainers\IPointCylTol.cs" />
+    <Compile Include="LengtUnit.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IGeometryLib\IGeometryLib.csproj">
+      <Project>{23ffcff1-a208-47d2-8349-472b915bf07a}</Project>
+      <Name>IGeometryLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
